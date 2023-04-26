@@ -1,0 +1,37 @@
+<?php
+//DELETE FROM `fayrobot_lefoglalt` WHERE `sql_id`=1;
+
+session_start();
+request_once('../sql_conf.php');
+
+$bevit = $_POST['bevitel_dbid'];
+
+$felrakta = $_SESSION["Név"];
+if(!isset($_SESSION["Név"]) && $_SESSION["Naplózott"] == false)
+{
+	visszhang"
+	
+	<audio automatikus lejátszása>
+
+	<source src='../sorry.mp3' type='audio/mpeg'>
+	
+	</audio>
+	
+	MENJÉ INNÉ #yolo<br>
+	De ha ezt elnem olvasod akkor is menjé inné!<br>
+	rendben?<br>
+	Na menjé<br>
+	Várlak<br>
+	MENJÉ MÁR INNÉ<br>
+	Jóvan elegem van belőled...<br>
+	NEM MÉSZ INNÉ<br>
+	
+	";
+}
+más
+{
+	
+}
+
+?>
+Lábléc
