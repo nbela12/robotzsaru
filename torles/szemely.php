@@ -1,0 +1,77 @@
+<?php
+session_start();
+request_once ( '../sql_conf.php' );
+request_once ( '../scripts/functions.php' );
+if (!isset( $ _SESSION [ 'Név' ]) && $ _SESSION [ 'Naplózott' ] == false )
+{
+	visszhang "
+	
+	<audio automatikus lejátszása>
+	<source src='../sorry.mp3' type='audio/mpeg'>
+	
+	</audio>
+	
+	MENJÉ INNÉ #yolo<br>
+	De ha ezt elnem olvasod akkor is menjé inné!<br>
+	rendben?<br>
+	Na menjé<br>
+	Várlak<br>
+	MENJÉ MÁR INNÉ<br>
+	Jóvan elegem van belőled...<br>
+	NEM MÉSZ INNÉ<br>
+	
+	";
+}
+más
+{
+	$ eredmény = $ mysqli -> query (" SELECT * FROM fayrobot_man ");
+	ShowNavBar ( 1 );
+		visszhang "
+<test>
+<br/><br/><br/><br/><br/><br/><br/>
+		<table border='1' align='center'>
+			<tr>
+				<th>DBID</th>
+				<th>Gyanusított neve</th>
+				<th>Körözést kiadta</th>
+				<th>Körözés érvényes</th>
+				<th>Vád</th>
+				<th>Személyleírás</th>
+			</tr>
+	
+	
+	";
+	while ( $ sor = mysqli_fetch_array( $ eredmény ))
+	{
+		echo " <tr> ";
+		echo " <td> " . $ sor [ 'sql_id' ] . " </td> ";
+		echo " <td> " . $ sor [ 'Neve' ] . " </td> ";
+		echo " <td> " . $ sor [ 'Felrakta' ] . " </td> ";
+		echo " <td> " . $ sor [ 'Mikor' ] . " </td> ";
+		echo " <td> " . $ sor [ 'Vad' ] . " </td> ";
+		echo " <td> " . $ sor [ 'Leiras' ] . " </td> ";
+		echo " </tr> ";
+	}
+	echo " </table> ";
+	visszhang "
+	
+		<p style='text-align:center;'>
+			<a href='../korozesek/szemely.php'>Körözött személyek</a>
+			<a href='../felrakas/szemely.php'>Körözött személy felrakása</a>
+		</p>
+		
+		<form action='szemely_del.php' method='POST'>
+		<div class='customLogin'>
+			<div class='account-wall'>
+				<input type='text' class='form-control' name='bevitel_dbid' placeholder='DBID'>
+				<button class='btn btn-lg btn-danger btn-block' type='submit'>Törlés</button>
+			</div>
+		</div>
+		</form>
+		
+	";
+	echo " </body> ";
+	echo " </html> ";
+}
+
+?>
