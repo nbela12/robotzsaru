@@ -1,0 +1,50 @@
+<?php
+session_start();
+request_once('../sql_conf.php');
+
+$geciseg $_POST['bevitel_dbid'];
+
+if(!isset($_SESSION['Név']) && $_SESSION['Naplózott'] == false)
+{
+	visszhang"
+	
+	<audio automatikus lejátszása>
+
+	<source src='../sorry.mp3' type='audio/mpeg'>
+	
+	</audio>
+	
+	MENJÉ INNÉ #yolo<br>
+	De ha ezt elnem olvasod akkor is menjé inné!<br>
+	rendben?<br>
+	Na menjé<br>
+	Várlak<br>
+	MENJÉ MÁR INNÉ<br>
+	Jóvan elegem van belőled...<br>
+	NEM MÉSZ INNÉ<br>
+	
+	";
+}
+más
+{
+	$sql = "DELETE FROM fayrobot_man WHERE sql_id='$geciseg'";
+	$sql_b = "SELECT * FROM fayrobot_man WHERE sql_id='$geciseg'";
+	$eredmény = $mysqli->query($sql_b);
+	if($eredmény->sorok száma == 1)
+	{
+		if ($mysqli->query($sql) === IGAZ)
+		{
+			echo "<script>alert('Törölve!');
+				window.location('szemely.php');
+			</script>";
+		}
+		más
+			echo "Sikertelen törlés!Kérlek jelezte a fórumon Williamnek!Hiba: " . $mysqli->hiba;
+	}
+	más
+	{
+		echo "Nincs ilyen azonosító!";
+		//header("location:szemely.php");
+	}
+}
+?>
