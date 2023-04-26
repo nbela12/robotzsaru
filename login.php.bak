@@ -1,0 +1,58 @@
+<?php
+
+session_start();
+
+request_once('sql_conf.php');
+
+$usname = $_POST['login_usname'];
+$jelszó = sha1(md5(sha1(md5($_POST['bejelentkezési_jelszó']))));
+
+
+$query = "SELECT * FROM fayrobot_users WHERE Jelvenyszam='$usname' AND Password='$jelszó'";
+$eredmény = $mysqli->query($query);
+//SELECT * FROM USERS WHERE Name='$usname' AND Password='$password'
+if($eredmény->sorok száma == 1)
+{
+	header("location:robotzsaru.php");
+	$_SESSION['Naplózott'] = igaz;
+	//$_SESSION['Név'] = $usname;
+	while($row = mysqli_fetch_array($eredmény))
+	{
+		$_SESSION["Név"] = $sor["Név"];
+		if($row['Admin'] == igaz)
+		{
+			$_SESSION['Adminisztrátor'] = igaz;
+ 		}
+		if($row['Alosztaly'] == 1){$_SESSION["ORFK"] = igaz;}
+		else if($row['Alosztaly'] == 2){$_SESSION["BE"] = igaz;}
+		else if($row['Alosztaly'] == 3){$_SESSION["BF"] = igaz;}
+		else if($row['Alosztaly'] == 4){$_SESSION["RF"] = igaz;}
+		else if($row['Alosztaly'] == 5){$_SESSION["KF"] = igaz;}
+		else if($row['Alosztaly'] == 6){$_SESSION["RSZKI"] = igaz;}
+		
+		if($row['Rendfokozat'] == 1){$_SESSION['Kadét'] == igaz;}
+		else if($row['Rendfokozat'] == 2){$_SESSION['Őrmester'] == igaz;}
+		else if($row['Rendfokozat'] == 3){$_SESSION['Törzsőrmester'] == true;}
+		else if($row['Rendfokozat'] == 4){$_SESSION['Főtörzsőrmester'] == true;}
+		else if($row['Rendfokozat'] == 5){$_SESSION['Zászlós'] == igaz;}
+		else if($row['Rendfokozat'] == 6){$_SESSION['Törzszászlós'] == igaz;}
+		else if($row['Rendfokozat'] == 7){$_SESSION['Főtörzszászlós'] == true;}
+		else if($row['Rendfokozat'] == 8){$_SESSION['Hadnagy'] == igaz;}
+		else if($row['Rendfokozat'] == 9){$_SESSION['Főhadnagy'] == true;}
+		else if($row['Rendfokozat'] == 10){$_SESSION['Százados'] == igaz;}
+		else if($row['Rendfokozat'] == 11){$_SESSION['Őrnagy'] == igaz;}
+		else if($row['Rendfokozat'] == 12){$_SESSION['Alezredes'] == igaz;}
+		else if($row['Rendfokozat'] == 13){$_SESSION['Ezredes'] ==true;}
+		else if($row['Rendfokozat'] == 14){$_SESSION['Dandártábornok'] == igaz;}
+		else if($row['Rendfokozat'] == 15){$_SESSION['Vezérőrnagy'] == igaz;}
+		else if($row['Rendfokozat'] == 16){$_SESSION['Altábornagy'] == true;}
+		
+	}
+}
+más
+{
+	echo "Sikertelen bejelentkezés!";
+	header("hely:index.html");
+}
+
+?>
