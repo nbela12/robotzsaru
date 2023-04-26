@@ -1,0 +1,201 @@
+@CHARSET  "UTF-8" ;
+
+* {
+	-webkit-box-sizing : border-box;
+	   -moz-box-sizing : border-box;
+	        box-sizing : border-box;
+	körvonal : nincs;
+}
+body {
+	háttér :  url (images/bg.jpg) ismétlés nélküli középpont javítva;
+    -webkit-background-size : borító;
+    -moz-background-size : borító;
+    -o-background-size : borító;
+    háttér-méret : borító;
+}
+
+. login-form {
+    betűtípus :  16 px/2em Lato , serif;
+	margó :  100 px auto;
+	maximális szélesség :  400 px ;
+}
+
+form [ role = login ] {
+	szín :  # 5d5d5d ;
+	háttér :  # f2f2f2 ;
+	kitöltés :  26 px ;
+	határsugár :  10 px ;
+	-moz-border-radius :  10 px ;
+	-webkit-border-radius :  10 px ;
+}
+	form [ szerep = bejelentkezés ] img {
+		kijelző : blokk;
+		margó :  0 auto;
+		margó-alsó :  35 px ;
+	}
+	form [ role = login ] input ,
+	form [ szerep = bejelentkezés ] button {
+		betűméret :  18 px ;
+		margó :  16 px  0 ;
+	}
+	form [ role = login ] >  div {
+		szöveg igazítása : középre;
+	}
+	
+. form-links {
+	szöveg igazítása : középre;
+	margó-felső :  1 em ;
+	margó-alsó :  50 px ;
+}
+	. form-links  a {
+		szín :  # fff ;
+	}
+. login-text {
+	szöveg igazítása : középre;
+	betűméret :  20 px ;
+}
+. nav-side-menu {
+  túlfolyó : auto;
+  font-family : verdana;
+  betűméret :  12 px ;
+  betűsúly :  200 ;
+  háttérszín :  # 2e353d ;
+  pozíció : rögzített;
+  felső :  0 px ;
+  szélesség :  300 px ;
+  magasság :  100 % ;
+  szín :  # e1ffff ;
+}
+. navigációs oldali menü . márka {
+  háttérszín :  # 23282e ;
+  vonalmagasság :  50 px ;
+  kijelző : blokk;
+  szöveg igazítása : középre;
+  betűméret :  14 px ;
+}
+. navigációs oldali menü . toggle-btn {
+  kijelző : nincs;
+}
+. navigációs oldali menü  ul ,
+. nav-side-menu  li {
+  lista-stílus : nincs;
+  kitöltés :  0 px ;
+  margó :  0 px ;
+  vonalmagasság :  35 px ;
+  kurzor : pointer;
+  /*    
+    .collapsed{
+       .arrow:before{
+                 font-család: FontAwesome;
+                 tartalom: "\f053";
+                 kijelző: inline-block;
+                 padding-bal:10px;
+                 padding-right: 10px;
+                 függőleges igazítás: középen;
+                 float:right;
+            }
+     }
+*/
+}
+. nav-side-menu  ul  : not ( összecsukva ) . nyíl : előtte ,
+. nav-side-menu  li  : nem ( összecsukva ). arrow : before {
+  font-family : FontAwesome;
+  tartalom :  "\f078" ;
+  kijelző : inline-block;
+  padding-bal :  10 px ;
+  padding-right :  10 px ;
+  függőleges igazítás : középen;
+  úszó : jobb;
+}
+. Nav-side-menu  ul . aktív ,
+. nav-side-menu  li . aktív {
+  border-left :  3 px solid # d19b3d ;
+  háttérszín :  # 4f5b69 ;
+}
+. Nav-side-menu  ul . almenü  li . aktív ,
+. nav-side-menu  li . almenü  li . aktív {
+  szín :  # d19b3d ;
+}
+. Nav-side-menu  ul . almenü  li . aktív  a ,
+. nav-side-menu  li . almenü  li . aktív  a {
+  szín :  # d19b3d ;
+}
+. Nav-side-menu  ul . li almenü  ,
+. nav-side-menu  li . almenü  li {
+  háttérszín :  # 181c20 ;
+  határ : nincs;
+  vonalmagasság :  28 px ;
+  border-bottom :  1 px solid # 23282e ;
+  margó-bal :  0 px ;
+}
+. Nav-side-menu  ul . almenü  li : lebeg ,
+. nav-side-menu  li . almenü  li : hover {
+  háttérszín :  # 020203 ;
+}
+. Nav-side-menu  ul . almenü  li : előtt ,
+. nav-side-menu  li . almenü  li : before {
+  font-family : FontAwesome;
+  tartalom :  "\f105" ;
+  kijelző : inline-block;
+  padding-bal :  10 px ;
+  padding-right :  10 px ;
+  függőleges igazítás : középen;
+}
+. nav-side-menu  li {
+  padding-left :  0 px ;
+  border-left :  3 px solid # 2e353d ;
+  border-bottom :  1 px solid # 23282e ;
+}
+. nav-side-menu  li  a {
+  szöveg-dekoráció : nincs;
+  szín :  # e1ffff ;
+}
+. Nav-side-menu  li  a  i {
+  padding-bal :  10 px ;
+  szélesség :  20 px ;
+  padding-right :  20 px ;
+}
+. nav-side-menu  li : hover {
+  border-left :  3 px solid # d19b3d ;
+  háttérszín :  # 4f5b69 ;
+  -webkit-transition : minden 1 s könnyű;
+  -moz-transition : mind 1 s könnyű;
+  -o-transition : minden 1 s könnyű;
+  -ms-transition : minden 1 s könnyű;
+  átmenet : minden 1 s könnyű;
+}
+@media ( max. szélesség :  767 px ) {
+  . nav-side-menu {
+    pozíció : relatív;
+    szélesség :  100 % ;
+    margó-alsó :  10 px ;
+  }
+  . navigációs oldali menü . toggle-btn {
+    kijelző : blokk;
+    kurzor : pointer;
+    pozíció : abszolút;
+    jobbra :  10 px ;
+    felső :  10 px ;
+    z-index :  10  !fontos ;
+    kitöltés :  3 px ;
+    háttérszín :  # ffffff ;
+    szín :  # 000 ;
+    szélesség :  40 px ;
+    szöveg igazítása : középre;
+  }
+  . márka {
+    text-align : balra !fontos ;
+    betűméret :  22 px ;
+    padding-bal :  20 px ;
+    vonalmagasság :  50 px  !fontos ;
+  }
+}
+@media ( min-width :  767 px ) {
+  . navigációs oldali menü . menü-lista . menü-tartalom {
+    kijelző : blokk;
+  }
+}
+body {
+  margó :  0 px ;
+  kitöltés :  0 px ;
+}
