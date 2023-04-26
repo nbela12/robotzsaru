@@ -1,0 +1,7 @@
+<?php
+
+session_start();
+header("hely:index.html");
+session_destroy();
+
+?>
